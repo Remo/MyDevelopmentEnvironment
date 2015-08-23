@@ -1,0 +1,29 @@
+== Installing MySQL
+
+I do really like the link:http://dev.mysql.com/downloads/mysql/[MSI Installer of MySQL].
+
+I usually do a custom installation, installing only the 64-bit version of MySQL Server, the client programs and the server data files.
+
+For the install directory I usually use `C:\Dev\MySQL`, and for the data directory I use `C:\Dev\MySQL\data`.
+
+For the configuration type I've chosen `Server Machine`, since it uses more memory and less disk access (that could degrade my brand new SSD).
+
+When I have to work directly with the database, I use the great link:http://www.heidisql.com/[HeidiSQL].
+
+Before working with MySQL, I always add this line under the `[mysqld]` section in the `C:\Dev\MySQL\data\my.ini` configuration file:
+
+----
+lower_case_table_names=2
+----
+
+Another option I usually change for *development* machines is setting `innodb_flush_log_at_trx_commit` to 0 to reduce disk usage (it's not safe, but that's fine for development machines).
+
+This option will allow preserving the case of the table names (otherwise they'll be always lower-case).
+
+One more option you may need from time to time is:
+
+----
+skip-grant-tables
+----
+
+This option will allow accessing the database with full rights with any username and password, so use it carefully.

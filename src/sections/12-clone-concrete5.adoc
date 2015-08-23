@@ -1,0 +1,23 @@
+== Cloning concrete5
+
+Ok, now your system is almost ready to work with git and GitHub.
+
+To work with the concrete5 repository you first have to fork it: go to the link:https://github.com/concrete5/concrete5[concrete5 repository page] and hit on the `Fork` button on the top-right area of the window.
+
+Doing so, you'll end with your own copy of concrete5 in GitHub (in my case it's located at link:https://github.com/mlocati/concrete5[github.com/mlocati/concrete5]).
+
+Remaining in _your_ copy of the repository, click on the little `ssh` link on the right (middle of the page) and hit the copy button (or copy the text in the textbox labeled `SSH clone URL`).
+
+Now you have to choose where you want to save your repository in your local PC. I usually place all my websites under `C:\Dev\Web`: browse to that folder, right-click inside it and choose `Git Clone...`.
+
+TortoiseGit should already suggest you to the `URL` you copied before (something like `git@github.com:.../concrete5.git`).
+
+I customize the `Directory` field by specifying `C:\Dev\Web\concrete5\5.7.git` (the final `.git` is only to remember myself it's a directory containing the git version of concrete5, it's not mandatory).
+
+In the `Load Putty Key` you need to specify the full path of the `.ppk` file you created before with PyTTYGen.
+
+Hit `Ok`: you'll be prompted for the password of your `.ppk` file. This step have to be done every time you reboot your PC (or if you manually close `Pageant` - the utility that holds in memory your private keys - you'll find it in your tray bar).
+
+The first time you connect to GitHub with Git, you'll be asked if you trust in GitHub: you have to hit `Yes`.
+
+The cloning process will then start, and may take a few minutes: git is retrieving the whole concrete5 repository and all the changes made to the code since it was initially imported in git (it was August 2008).

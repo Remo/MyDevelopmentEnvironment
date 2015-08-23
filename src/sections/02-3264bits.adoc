@@ -1,0 +1,7 @@
+== 32 or 64 bits?
+
+From past experience of mine, it's really better to use the same technology for Apache, PHP, the debugger and the IDE. In particular I was having problems with the debugger and the IDE interaction (but since then things may have changed - I don't know).
+
+Therefore, since the 64 bits version of PHP is still experimental and usually the 64 bits version of Windows programs aren't really faster that their 32 bits counterparts, I've chosen the 32 version.
+
+For MySQL I have chosen the 64 bits version instead.

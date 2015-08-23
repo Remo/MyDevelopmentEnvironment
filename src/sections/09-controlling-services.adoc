@@ -1,0 +1,7 @@
+== Controlling MySQL and Apache
+
+Since I use my development machine for other purposes, I don't need that Apache and MySQL always start when I boot up my PC.
+
+So, I set those services as `Start manually` in the Windows Services control panel (hit `WinKey`+`R`, enter `services.msc` and hit `return` then change the properties in the two services `Apache` and `MySQL`).
+
+To start/stop/restart my services I wrote a little utility that you can find link:https://github.com/mlocati/ServicesControl[here].

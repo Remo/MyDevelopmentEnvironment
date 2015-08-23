@@ -1,0 +1,11 @@
+== Visual C++ Redistributable
+
+In order to run Apache and php, you may need the Visual C++ Redistributable packages.
+
+To determine which version(s) of those redistributable packages, here's a fast hint:
+
+* if the file name contains `vc14` you'll need the link:https://www.microsoft.com/en-us/download/details.aspx?id=48145[Visual C++ Redistributable for Visual Studio 2015]
+* if the file name contains `vc11` you'll need the link:https://www.microsoft.com/en-us/download/details.aspx?id=30679[Visual C++ Redistributable for Visual Studio 2012]
+* if the file name contains `vc9` you'll need the link:https://www.microsoft.com/en-US/download/details.aspx?id=5582[Visual C++ Redistributable for Visual Studio 2008]
+
+You have to download and launch the 32 or 64 bits version accordingly to the specific situation.

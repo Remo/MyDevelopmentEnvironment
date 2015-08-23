@@ -1,0 +1,163 @@
+== Eclipse
+
+Eclipse is a great (and free) multi-purpose IDE.
+
+In the past it used to be really slow, but recently it's very stable and offers many handy functions, so if you already tried it in the past it's worth to give it a second chance.
+
+In order to launch Eclipse you need Java installed in your PC (JRE version 7 or 8 at the time of writing this).
+
+If you don't have it, go link:https://www.java.com/download/[download] and install it.
+
+
+=== Installing Eclipse
+
+As you may have realized, I do really prefer to start from scratch in my development environment.
+
+The same applies for Eclipse: there's already an Eclipse distribution targeted to PHP developers, but it comes with many extra futures I never used.
+
+So, let's start downloading the *naked* version of Eclipse, that is an Eclipse without any plugin.
+
+It's called *Platform Runtime Binary* and to find it you have to go to the link:http://www.eclipse.org/downloads/[Eclipse download page], click on link:http://download.eclipse.org/eclipse/[Other builds] on the right side of that page, choose the first build under the *Latest Downloads* (it's the link:http://download.eclipse.org/eclipse/downloads/drops4/R-4.5-201506032000/[4.5 - Eclipse Mars], look for *Platform Runtime Binary* and download the 32 bits build for Windows (remember: experience taught me that Apache, PHP, xdebug and Eclipse must all be the same version - 32 bits in my case).
+
+Extract the downloaded archive into `C:\Dev\Eclipse`(you may want to add Eclipse in your Start Menu - simply add a shortcut to `eclipse.exe` in the Start Menu folder located at `%APPDATA%\Microsoft\Windows\Start Menu\Programs`).
+
+The first time you launch Eclipse, you'll be asked the location of the so-called *Workspace*.
+
+An Eclipse workspace is a sort of container for all the projects you'll be working on. I usually have only one workspace (located at `C:\Dev\Eclipse\workspace`), so I choose to *Use this use this as the default and do not ask again*.
+
+
+=== Adding the PHP Development Tools (PDT) to Eclipse
+
+PDT is a great plugin for Eclipse. Many brave guys are making it better and better every day, so I always install the latest development version. From time to time it may have problems, but it's really offering more and more features. Obviously there's a bit of risk doing so (but I've never had any big problems for years): the choice is up to you.
+
+So, here's how you can install either the development version of the official one.
+
+* __Development version installation__
+  To install the development version of PDT you have to tell Eclipse where to find it.
+  Open Eclipse, in the *Window* menu choose *Preferences*.
+  In the left tab of the Preferences window, go to *Install/Update* > *Available Software Sites*.
+  Then add these two new sites:
+** Name: `PDT Nightly` (or whatever you want)
+  Location: `http://download.eclipse.org/tools/pdt/updates/latest-nightly/`
+** Name: `DLTK Nightly` (PDT Nightly requires this)
+  Location: `http://download.eclipse.org/technology/dltk/updates-dev/latest-nightly/`
+  Once you set these two new sites, you can install PDT in the same way of the official installation (see below).
+
+* __Official version installation__
+  Open Eclipse, in the *Help* menu choose *Install New Software...*.
+  In the window that will open, choose *--All Available Sites--* in the *Work with* field and enter *PDT* in the *type filter text* field.
+  Check the `PHP Development Tools (PDT)` package and proceed with the installation.
+
+=== Configuring Eclipse and PDT
+
+Once you installed PDT, you can switch to the so-called PHP-perspective: under the *Window* menu choose *Perspective* -> *Open Perspective* -> *Other* and choose the *PHP* perspective.
+
+Here's the few options I always apply to Eclipse.
+
+You can find the Eclipse preferences under the *Window* menu => *Preferences*.
+
+* under *General* -> *Web Browser*
+** I choose *use external web browser* and to
+** use the *Default system web browser*
+* under *General* -> *Workspace*
+** In the *Text file encoding* choose *Other* -> *UTF-8*
+** In the *New text file line delimiter* choose *Other* -> *Unix*
+* under *JavaScript* -> *Code Style* -> *Formatter*: concrete5 uses the Airbnb coding style, simply hit on *Import...* and load link:files/Airbnb.xml[this xml file]
+* under *PHP* -> *Code Style* -> *Formatter*: concrete5 adopted the standard PSR rules, so choose *PSR-2 [builtin]*
+* under *PHP* -> *PHP Executables*: add all the PHP versions you have setup (see the *Installing PHP* section above).
+  I name the executables with the version name (for example: *PHP 5.5*)
+* under *PHP* -> *PHP Executables* -> *Execution Environments* you have to map the executables to their PHP version
+* under *PHP* -> *Servers* you have to define all the web sites you defined in Apache. For instance, in the sample `concrete5-5.7.git.conf` I described above, you'll have to:
+** give a name to the server: I use the same name as the `.conf` file, so I have `concrete5-5.7.git`
+** in the base URL you have to specify the port defined in the `.conf` file, so I have `http://localhost:10000`
+** in the document root specify the full path of the web folder: `C:\Dev\Web\concrete5\5.7.git\web`
+** Hit *Next* and choose `XDebug` as the debugger
+
+
+=== Coding concrete5 with Eclipse
+
+Now that you have a local concrete5 repository and a working Eclipse in your PC, you can start coding for concrete5.
+You'll have to:
+
+
+=== Create a new project
+
+Select the *File* menu -> *New* -> *PHP Project*
+
+* Give a name to your project (I use `concrete5-5.7.git`)
+* Select *Create project at existing location (from existing source)* and specify the root directory of our concrete5 copy (`C:\Dev\Web\concrete5\5.7.git`)
+
+All the other options are, well, optional...
+
+
+=== Configure the concrete5 project
+
+In the `PHP Explorer` panel, right-click on the project name (`concrete5-5.7.git` in my case) and choose *Properties*.
+
+* under *PHP* -> *Debug*:
+** select to *Enable project specific settings*
+** select the *PHP Server* defined above (`concrete5-5.7.git` in my case)
+** in the *Base Path* field enter just a `/`
+
+Now it's time to see the full power of your new development system!
+
+
+==== Step-by-step debugging
+
+Locate the image:icon-toolbar_debug.png[Debug, title="Debug"] icon in the toolbar and click on then down arrow on the right of it, and then choose *Debug Configurations...*.
+
+We're going to debug a web site, so right-click on *PHP Web Application* and choose *New*:
+
+* In the *Server* tab:
+** In the *Name* field enter: `concrete5-5.7.git - Home` (or anything you want)
+** In the *PHP Server* field select `concrete5-5.7.git`
+** In the *File* field: hot *Browse* and choose the file *web/index.php*
+** Uncheck the *Auto Generate* checkbox and empty the suggested URL.
+* In the *Debugger* tab:
+** you may want to uncheck *Break at First Line* in future: take note it's there
+* In the *Common* tab:
+** Select to save as *Shared file* and browse to the `.settings` directory (this is not mandatory but is really handy when working with multiple projects)
+** Check both the *Debug* and *Run* checkboxes in the *Display in favorites menu*
+** Since we're debugging a website, I'd uncheck the *Allocate console (necessary for input)* (you may want to check it when you'll debug PHP scripts that are not part of a web site)
+
+Hit the *Apply* then the *Close* buttons.
+
+Now, if you want to simply start the website, click on the down arrow on the right of the image:icon-toolbar_run.png[Run, title="Run"] icon in the toolbar and choose `1. concrete5-5.7.git - Home`.
+
+If you want to start a debugging session, hit the down arrow on the right of the image:icon-toolbar_debug.png[Debug, title="Debug"] icon in the toolbar and click on `1. concrete5-5.7.git - Home`.
+
+Eclipse will ask you if you want to switch to the so-called *Debug* perspective: check the *Remember my decision* checkbox and hit *Yes*.
+
+In the debug perspective you are now able to view all the defined variables and to control the execution by executing the code line-by-line: great, isn't it?
+
+You may want to take a look at the *Eclipse keyboard shortcuts* section below to see how to control the execution flow.
+
+
+=== Eclipse keyboard shortcuts
+
+All the Eclipse keyboard shortcuts can be found in the *Preferences* window under *General* -> *Keys*.
+
+By the way, here you can find the most useful ones (or at least those that I use most):
+
+
+* **Help**
+** `Shift`+`F2` when the current cursor position is in the middle of a built-in PHP function or class method: open the PHP manual for that function
+** `Ctrl`+`Left Click` on a variable/function/method: jump to its definition
+
+* **Search**
+** `Ctrl`+`F`: open the search-in-current-file dialog
+** `Ctrl`+`K` (after having defined a search with `Ctrl`+`F`): search next
+** `Ctrl`+`Shift`+`K` (after having defined a search with `Ctrl`+`F`): search previous
+** `Ctrl`+`H`: open the search-in-multiple-files dialog
+
+* **Debug**
+** `Ctrl`+`Shift`+`B`: add or remove a breakpoint
+** `F6` (while debugging): run next line of code
+** `F5` (while debugging): run next line of code (but stepping into entering user defined functions)
+** `F7` (while debugging): run the current function until it ends
+** `F8` (while debugging): run until the end of the script (or until the next breakpoint)
+** `Ctrl`+`F2`: stop the debugging session
+
+* **Miscellaneous**
+** `Ctrl`+`Space`: force the auto-completion context menu to appear
+** `Alt`+`Shift`+`W` then `X`: locate the current or selected file or directory in Windows Explorer

@@ -1,0 +1,35 @@
+== Git and TortoiseGit
+
+Coming from other systems, it took me a while to understand git. But now I couldn't live without it.
+
+The first thing to do is installing git for Windows.
+
+At the time of writing this document, there are two alternatives: link:https://msysgit.github.io/[MSys Git] and link:https://git-for-windows.github.io/[Git For Windows].
+
+MSys Git has been available for years now, whereas Git For Windows is relatively new, but since we may consider Git For Windows as a version 2 of MSys Git, I'd go with it.
+
+When installing it, I'd deselect any option except `Associate .sh files to be run with Bash`.
+
+When asked about the PATH environment, I'd go with `Use Git from the Windows Command prompt`. It's not mandatory, but if may be handy from time to time.
+
+About the checkout style, I always choose to `Checkout as is, commit as is`: I really hate such automatic conversions, but you'll have to take care of the line endings of the text files you'll work with (more on this below).
+
+To fully understand git you may want to read the link:https://git-scm.com/book/en/v2[git documentation].
+
+By the way, another GUI tool may save you hours of study: link:https://tortoisegit.org/download/[TortoiseGit]. I always install it with the default options.
+
+Now it's time to configure git: simply right click on any folder (the desktop will work too), and choose `TortoiseGit` -> `Settings`.
+
+For the kind of workflow I adopted when working with concrete5, I use these settings:
+
+* in the `Context Menu` tab I choose these items:
+** `Clone`
+** `Fetch`
+** `Push`
+** `Commit`
+** `Show log`
+** `Create repository here...`
+* In the `Alternative editor` tab I specify the full path to the Notepad++ executable. link:https://notepad-plus-plus.org[Notepad++] is a great and powerful text editor: you should give it a try.
+* In the `Git` tab, you can specify the default `global` configuration: specify your `Name` and your `Email`, they'll be associated by default with the edits you'll push to concrete6 (or your own projects). I also disable the `AutoCrLf` option
+* In the `Diff Viewer` tab, in the `Configure the program used for comparing different revisions of files` I specify that I'd like to use the previously installed WinMerge, so I choose `External` and write in the text field `"C:\Program Files (x86)\WinMerge\WinMergeU.exe" /e /x /u /wl /maximize /dl %bname /dr %yname %base %mine`.
+* In the `Merge Tool` tab I again choose `External` and write in the text field `"C:\Program Files (x86)\WinMerge\WinMergeU.exe" /e /u %merged`

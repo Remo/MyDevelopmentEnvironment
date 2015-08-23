@@ -1,0 +1,60 @@
+== Some common-use utilities
+
+=== Generic utilities
+I often use some command line utilities. I place them in the `C:\Dev\Util\bin` directory and I link:https://www.google.com/search?q=add+directory+to+path+environment+variable+in+windows[add that folder to the PATH variable] to be able to use them more easily. Obviously that's just my personal flavor.
+
+Here's a list of utilities that I place there:
+
+* link:https://technet.microsoft.com/en-us/sysinternals/bb896768.aspx[junction] +
+  To create Unix-line symbolic links in Windows
+* link:http://mlocati.github.io/gettext-iconv-windows/[gettext and iconv] +
+  To handle localization stuff
+
+=== WinMerge
+In order to compare files, I use the great link:http://winmerge.org[WinMerge]. It's quite old, but I haven't still found a valid alternative and it does its job without issues.
+You'll find it very handy when it's integrated with git (see below), so install it right now.
+
+=== NodeJS
+To have a working copy of concrete5, you'll need NodeJS, a great engine that allow running JavaScript files and do a lot of wonderful stuff.
+link:https://nodejs.org/download/[Download] and install it with the default options.
+You'll then have mainly two new commands available: `node` (the core program that executes JavaScript scripts) and `npm` (a great tool to manage extra functions of node).
+
+=== Grunt
+Once you installed NodeJS, you'll need `grunt`: it's great node utility NodeJS that allow building stuff.
+To install it simply open a command prompt and type:
+---
+npm install -g grunt-cli
+---
+
+=== Composer
+Composer is a fantastic and powerful tool to handle PHP packages, and you'll need it in order to build a working local copy of concrete5.
+
+You can download and install it in a folder in your path (`C:\Dev\Util\bin` in my case) with the following commands that you'll have to type in a command prompt:
+----
+cd /D C:\Dev\Util\bin
+php -r "readfile('https://getcomposer.org/installer');" | php
+echo @php ^"^%~dp0composer.phar^" %* >composer.cmd
+----
+
+From time to time, you may want to update it: simply type this line in a command prompt:
+----
+composer self-update
+----
+
+=== php-cs-fixer
+Adopting a common coding style is really important.
+
+concrete5 developers use php-cs-fixer to help having a common style.
+
+You can link:http://cs.sensiolabs.org[download] it and save in a directory in your path (`C:\Dev\Util\bin` in my case).
+
+In order to use it in an easy and fast way, you can create a batch file to all it. Here's what I do:
+----
+cd /D C:\Dev\Util\bin
+echo @php ^"^%~dp0php-cs-fixer.phar^" %* >php-cs-fixer.cmd
+----
+
+From time to time, you may want to update it: simply type this line in a command prompt:
+---
+php-cs-fixer self-update
+---

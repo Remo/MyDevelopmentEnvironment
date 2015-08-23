@@ -1,0 +1,5 @@
+== Installation directory
+
+I prefer to keep all my development stuff in one place, but you can do what you prefer.
+
+In this document I assume `C:\Dev`: if you use another path please replace it in every occurrence of this document and in the configuration files linked to this document.

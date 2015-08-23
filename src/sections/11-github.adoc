@@ -1,0 +1,15 @@
+== GitHub
+
+In order to interact with concrete5 (as well as all the others repositories in GitHub), you need an account on GitHub: link:https://github.com/join[go create it] if you didn't already do it.
+
+Once you have an account on GitHub, you need to create the so-called private/public key pair:
+
+* open up `PuTTYGen` (it should have been installed with TortoiseGit)
+* click on the `Generate` button and move randomly your mouse over the PuTTYGen window until the progress bar reaches the 100%
+* change the `Key comment` field to something more descriptive, like `Key for GitHub`
+* In the `Key passphrase` field (and the same for `Confirm passphrase`) you can specify a password to protect the files you're going to create. It does not have to be the same password that you use for GitHub.
+* click on `Save private key` and save a `.ppk` file in a secure position; you should never give to anybody this file
+* copy the full text in the `Public key for pasting into OpenSSH authorized_keys file` into the clipboard
+* Go to back to link:https://github.com/[GitHub], be sure to be logged in, click on your account image on the top-right area of the browser and choose `Settings`. Go to the `SSH keys` page and click on `Add SSH key`. Give a title of your choice and paste into the `Key` field the text you copied above
+
+Please remark that you can re-create the public key from a private key you created before (the `.ppk` file): simply launch PuTTYGen and load that ppk file.

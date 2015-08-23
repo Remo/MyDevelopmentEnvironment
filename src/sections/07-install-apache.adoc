@@ -1,0 +1,42 @@
+== Installing Apache
+
+In order to work with web sites, you'll need a web server. Apache is the mostly adopted, so I've chosen it (not a great criterion, but who cares).
+
+On the link:http://windows.php.net/download/[PHP Windows download page], they suggest to use the binary distribution of Apache compiled by Apache Lounge.
+
+So, download the 32 bit of Apache from link:http://www.apachelounge.com/download/[Apache Lounge] (v 2.4.16-win32-VC14 at the time of writing).
+
+I extract the downloaded archive into `C:\Dev\Apache`.
+
+You then have to configure Apache. link:files/Apache.conf[Here's] the configuration file I use (if you use a different installation directory you'll have to update this file): save it as `C:\Dev\Apache.conf`.
+
+Finally, I use Apache as a Windows service. To create it simply open a command prompt with administrative right (fast way: `WinKey`+`X` -> `Command Prompt (Admin)`) and type:
+
+----
+"C:\Dev\Apache\bin\httpd.exe" -k install -n Apache -f "C:\Dev\Apache.conf"
+----
+
+By running that command line, you'll install Apache as a Windows service called `Apache`.
+
+By the way, you'll see an error message: Apache is installed but can't start.
+
+That's because we don't have still configured files does not define any web site.
+
+To define a new local website you need to create a `.conf` file in the `C:\Dev\Apache\vhosts` directory.
+
+For instance, here's the content of my `C:\Dev\Apache\vhosts\concrete5-5.7.git.conf` file that defines a new website available as http://localhost:10000 that points to files defined in a `C:\Dev\Web\concrete5\5.7.git\web` directory:
+
+----
+Listen 10000
+
+<VirtualHost *:10000>
+    ServerAdmin mlocati@gmail.com
+    DocumentRoot "C:\Dev\Web\concrete5\5.7.git\web"
+</VirtualHost>
+<Directory "C:\Dev\Web\concrete5\5.7.git\web">
+    Options +FollowSymLinks -SymLinksIfOwnerMatch
+    Allow from all
+    Order allow,deny
+    AllowOverride All
+</Directory>
+----

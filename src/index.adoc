@@ -1,0 +1,35 @@
+= My development environment for concrete5 under Windows
+Michele Locati <michele@locati.it>
+:toc: left
+:toclevels: 2
+:toc-title: Sections
+:imagesdir: images
+:hide-uri-scheme:
+
+include::sections/01-introduction.adoc[]
+
+include::sections/02-3264bits.adoc[]
+
+include::sections/03-installdir.adoc[]
+
+include::sections/04-utilities.adoc[]
+
+include::sections/05-vcredist.adoc[]
+
+include::sections/06-install-php.adoc[]
+
+include::sections/07-install-apache.adoc[]
+
+include::sections/08-install-mysql.adoc[]
+
+include::sections/09-controlling-services.adoc[]
+
+include::sections/10-install-git.adoc[]
+
+include::sections/11-github.adoc[]
+
+include::sections/12-clone-concrete5.adoc[]
+
+include::sections/13-build-concrete5.adoc[]
+
+include::sections/14-setup-eclipse.adoc[]

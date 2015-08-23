@@ -1,0 +1,24 @@
+== Introduction
+
+When I develop PHP projects, I need the following features:
+
+* *code completion*
+  I don't want to remember the exact spelling of all those PHP functions, I don't want to remember all the methods of a class, I don't want to manually type every function name (it takes time and leads to typos), so I do really need a way to simply start typing something and having a list of functions and methods.
+* *integrated documentation*
+  I don't want to remember the meaning and the order of every function parameters (was it `strpos($haystack, $needle)` or `strpos($needle, $haystack)`?), so I need an immediate way to see a short description of every function and its parameters
+* *step-by-step debug*
+  I don't want to place `var_dumps` to see the value of a variable at a certain point, I don't want to place hundreds of `echo`s to see what's happening and what functions get executes: I just want to say: during the execution of PHP, I want to see at a certain points what's the value of the defined variables and see the execution flow step-by-step.
+
+I know, someone will stick up their nose reading this, but yes, I develop my concrete5 projects under Windows.
+
+But, since I have all the above wonderful stuff without any issue, well... who cares.
+
+Windows 10 just came out and I took the opportunity to buy a new SSD to replace my old magnetic HD and perform a fresh install of everything, including my development environment.
+
+I'm keeping a log in this document to keep trace about what I do: maybe it could help someone else.
+
+About setting up Apache, PHP and MySQL: I know, there are many good and ready-to-use WAMP systems out there, but I prefer a manual setup my PC from A to Z, to keep my finger on the pulse and in order to fine-tune all the stuff.
+
+It's not that hard, if you know what you are doing (of if someone explains you what you need ;) ).
+
+So... let's go!

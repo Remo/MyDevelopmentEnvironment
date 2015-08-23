@@ -1,0 +1,70 @@
+== Installing PHP
+
+I personally prefer to check all my stuff in multiple versions of PHP.
+
+So, go to the link:http://windows.php.net/download[PHP download page for Windows] and download the versions you want to use.
+
+There you'll find *non thread safe* and *thread safe* versions: from a research I did some time ago, it's preferable to download the *thread safe* versions.
+
+So, download all the *x86 Thread Safe* *zip* versions you want and extract them in their own folders into `C:\Dev`.
+
+At time of writing this, I ended up having these folders:
+
+* `C:\Dev\php-5.3.29-Win32-VC9-x86` -> rename to `C:\Dev\PHP5.3`
+* `C:\Dev\php-5.4.44-Win32-VC9-x86` -> rename to `C:\Dev\PHP5.4`
+* `C:\Dev\php-5.5.28-Win32-VC11-x86` -> rename to `C:\Dev\PHP5.5`
+* `C:\Dev\php-5.6.12-Win32-VC11-x86` -> rename to `C:\Dev\PHP5.6`
+
+You'll then need to download the debugger: I've always used xdebug and it's really great.
+
+link:http://xdebug.org/download.php[Download] the *TS (32 bit)* DLLs (TS is for *thread safe*), choosing the VC version that correspond to the PHP versions you downloaded.
+
+Place each `php_xdebug-....dll` file in the `etc` corresponding folder of the corresponding PHP version.
+
+At time of writing this, I ended up having these files:
+
+* `C:\Dev\PHP5.3\ext\php_xdebug-2.2.7-5.3-vc9.dll`
+* `C:\Dev\PHP5.4\ext\php_xdebug-2.3.3-5.4-vc9.dll`
+* `C:\Dev\PHP5.5\ext\php_xdebug-2.3.3-5.5-vc11.dll`
+* `C:\Dev\PHP5.6\ext\php_xdebug-2.3.3-5.6-vc11.dll`
+
+We need to configure every PHP version. Take link:files/php.ini[this php.ini file] and save a copy of it in every PHP folder.
+
+You'll need to configure it manually: read the first lines of the php.ini file for more details.
+
+Now it's time to choose a PHP version you want to work with.
+
+Let's assume you want PHP 5.5: simply open a command prompt and type:
+
+----
+junction C:\Dev\PHP C:\Dev\PHP5.5
+----
+
+That command will create a *junction*: `C:\Dev\PHP` will be an *alias* of `C:\Dev\PHP5.5`.
+
+In order to use PHP from other scripts in an easy way, I then add the `C:\Dev\PHP` directory link:https://www.google.com/search?q=add+directory+to+path+environment+variable+in+windows[to the PATH variable].
+
+So, if you now open a command prompt and type
+
+----
+php --version
+----
+
+You'll see something like:
+
+----
+PHP 5.5.28 (cli) (built: Aug  5 2015 13:39:48)
+Copyright (c) 1997-2015 The PHP Group
+Zend Engine v2.5.0, Copyright (c) 1998-2015 Zend Technologies
+----
+
+In order to change the current PHP version, simply do the following:
+
+----
+junction -d C:\Dev\PHP
+junction C:\Dev\PHP C:\Dev\PHP5.6
+----
+
+Doing that, `C:\Dev\PHP` will now be an alias of PHP 5.6...
+
+Nice, isn't it?
