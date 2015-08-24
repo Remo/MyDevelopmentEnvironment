@@ -3,7 +3,7 @@ Michele Locati <michele@locati.it>
 :toc: left
 :toclevels: 2
 :toc-title: Sections
-:imagesdir: images
+:imagesdir: https://raw.githubusercontent.com/mlocati/MyDevelopmentEnvironment/master/src/images
 :hide-uri-scheme:
 
 include::sections/01-introduction.adoc[]
