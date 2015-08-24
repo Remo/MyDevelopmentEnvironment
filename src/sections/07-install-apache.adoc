@@ -8,7 +8,7 @@ So, download the 32 bit of Apache from link:http://www.apachelounge.com/download
 
 I extract the downloaded archive into `C:\Dev\Apache`.
 
-You then have to configure Apache. link:files/Apache.conf[Here's] the configuration file I use (if you use a different installation directory you'll have to update this file): save it as `C:\Dev\Apache.conf`.
+You then have to configure Apache. link:https://github.com/mlocati/MyDevelopmentEnvironment/blob/master/src/files/Apache.conf[Here's] the configuration file I use (if you use a different installation directory you'll have to update this file): save it as `C:\Dev\Apache.conf`.
 
 Finally, I use Apache as a Windows service. To create it simply open a command prompt with administrative right (fast way: `WinKey`+`X` -> `Command Prompt (Admin)`) and type:
 

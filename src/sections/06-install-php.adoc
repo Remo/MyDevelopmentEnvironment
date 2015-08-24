@@ -28,7 +28,7 @@ At time of writing this, I ended up having these files:
 * `C:\Dev\PHP5.5\ext\php_xdebug-2.3.3-5.5-vc11.dll`
 * `C:\Dev\PHP5.6\ext\php_xdebug-2.3.3-5.6-vc11.dll`
 
-We need to configure every PHP version. Take link:files/php.ini[this php.ini file] and save a copy of it in every PHP folder.
+We need to configure every PHP version. Take link:https://github.com/mlocati/MyDevelopmentEnvironment/blob/master/src/files/php.ini[this php.ini file] and save a copy of it in every PHP folder.
 
 You'll need to configure it manually: read the first lines of the php.ini file for more details.
 

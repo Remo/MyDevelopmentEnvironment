@@ -62,7 +62,7 @@ You can find the Eclipse preferences under the *Window* menu => *Preferences*.
 * under *General* -> *Workspace*
 ** In the *Text file encoding* choose *Other* -> *UTF-8*
 ** In the *New text file line delimiter* choose *Other* -> *Unix*
-* under *JavaScript* -> *Code Style* -> *Formatter*: concrete5 uses the Airbnb coding style, simply hit on *Import...* and load link:files/Airbnb.xml[this xml file]
+* under *JavaScript* -> *Code Style* -> *Formatter*: concrete5 uses the Airbnb coding style, simply hit on *Import...* and load link:https://github.com/mlocati/MyDevelopmentEnvironment/blob/master/src/files/Airbnb.xml[this xml file]
 * under *PHP* -> *Code Style* -> *Formatter*: concrete5 adopted the standard PSR rules, so choose *PSR-2 [builtin]*
 * under *PHP* -> *PHP Executables*: add all the PHP versions you have setup (see the *Installing PHP* section above).
   I name the executables with the version name (for example: *PHP 5.5*)
