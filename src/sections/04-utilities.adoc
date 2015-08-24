@@ -22,9 +22,9 @@ You'll then have mainly two new commands available: `node` (the core program tha
 === Grunt
 Once you installed NodeJS, you'll need `grunt`: it's great node utility NodeJS that allow building stuff.
 To install it simply open a command prompt and type:
----
+----
 npm install -g grunt-cli
----
+----
 
 === Composer
 Composer is a fantastic and powerful tool to handle PHP packages, and you'll need it in order to build a working local copy of concrete5.
@@ -55,6 +55,6 @@ echo @php ^"^%~dp0php-cs-fixer.phar^" %* >php-cs-fixer.cmd
 ----
 
 From time to time, you may want to update it: simply type this line in a command prompt:
----
+----
 php-cs-fixer self-update
----
+----
